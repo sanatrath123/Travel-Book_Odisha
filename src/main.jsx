@@ -9,9 +9,9 @@ import Landing from './pages/Landing.jsx'
 import Signup from './pages/Signup.jsx'
 import LoginPage from './pages/Loginpage.jsx'
 import AuthProtection from './authlayout/Authlayout.jsx'
-import Demo from './pages/Demo'
-
-
+import AllRooms from './pages/AllRooms.jsx'
+import Cart from './pages/Cart.jsx'
+import FavouriteRooms from './pages/FavouriteRooms.jsx'
 const router = createBrowserRouter([
   {
     path:"/",
@@ -23,8 +23,16 @@ const router = createBrowserRouter([
     element:<Landing/>
   },
   {
-    path:"/demo",
-    element:<Demo/>
+    path:"/all-room",
+    element:<AllRooms/>
+  },
+  {
+    path:"/cart",
+    element:<Cart/>
+  },
+  {
+    path:"/favorite",
+    element:<FavouriteRooms/>
   }
 
 ]},

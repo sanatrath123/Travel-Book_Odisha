@@ -1,0 +1,171 @@
+{
+    
+    "Hotels" :   [
+        [
+            {
+                "title": "Seaside Paradise Villa",
+                "description": "Relax in this luxurious seaside villa with breathtaking ocean views. Perfect for a romantic getaway or a family vacation.",
+                "price": "$100/night",
+                "location": "Cuttack",
+                "bedrooms": "2BHk",
+                "img": "https://cf.bstatic.com/xdata/images/hotel/square200/542362023.webp?k=240cc3312270e66c9c032c2f6816bb4021a2610cd8a68701e775ec8164bb3643&o="
+            },
+            {
+                "title": "Mountain Retreat Cabin",
+                "description": "Escape to this cozy cabin nestled in the mountains. Enjoy hiking, wildlife spotting, and evenings by the fireplace.",
+                "price": "$180/night",
+                "location": "Bhubaneswar",
+                "bedrooms": "3BHk",
+                "img": "https://cf.bstatic.com/xdata/images/hotel/square200/519614341.webp?k=89f956c0fd5adc63ca98e9a88d7ee887a76ea5a9b1bd53293a920c50d8c697a9&o="
+            },
+            {
+                "title": "City Center Loft Apartment",
+                "description": "Live in the heart of the city in this stylish loft apartment. Walk to cafes, theaters, and parks from this central location.",
+                "price": "$250/night",
+                "location": "Khordha",
+                "bedrooms": "2B2HK",
+                "img": "https://cf.bstatic.com/xdata/images/hotel/square200/542356265.webp?k=f6e92f6e7ad2ea10153f6f778216326a5985a9356ace762f0743ad3f8b0fd26a&o="
+            },
+            {
+                "title": "Lakefront Cottage Retreat",
+                "description": "Unwind in this charming cottage overlooking a serene lake. Perfect for fishing, kayaking, and nature walks.",
+                "price": "$200/night",
+                "location": "Puri",
+                "bedrooms": "2BHK",
+                "img": "public/roomImg/room1.jpeg"
+            },
+            {
+                "title": "Luxury Beachfront Villa",
+                "description": "Indulge in luxury at this stunning beachfront villa. With private beach access and luxurious amenities, it's an unforgettable retreat.",
+                "price": "$500/night",
+                "location": "Bhubaneswar",
+                "bedrooms": "4BHk",
+                "img": "public/roomImg/12.jpeg"
+            },
+            {
+                "title": "Country Farmhouse Getaway",
+                "description": "Experience the tranquility of the countryside in this charming farmhouse. Enjoy fresh air, scenic views, and farm-to-table dining.",
+                "price": "$150/night",
+                "location": "OldTown",
+                "bedrooms": "2B2Hk",
+                "img": "public/roomImg/room2.jpeg"
+            },
+            {
+                "title": "Ski-in/Ski-out Chalet",
+                "description": "Hit the slopes from this cozy ski-in/ski-out chalet. After a day of skiing, relax in the hot tub and enjoy the mountain views.",
+                "price": "$400/night",
+                "location": "Patia",
+                "bedrooms": "3BHK",
+                "img": "public/roomImg/room3.jpeg"
+            },
+            {
+                "title": "Historic City Townhouse",
+                "description": "Step back in time in this beautifully restored historic townhouse. Located in the heart of the city, it's a perfect blend of old-world charm and modern convenience.",
+                "price": "$250/night",
+                "location": "Bhubaneswar",
+                "bedrooms": "1B2Hk",
+                "img": "public/roomImg/room4.jpg"
+            },
+            {
+                "title": "Desert Oasis Retreat",
+                "description": "Escape to this luxurious desert oasis surrounded by palm trees and sand dunes. Relax by the pool or explore nearby desert attractions.",
+                "price": "$350/night",
+                "location": "Kendrapada",
+                "bedrooms": "2BHk",
+                "img": "public/roomImg/room5.jpg"
+            },
+            {
+                "title": "Tropical Beach Bungalow",
+                "description": "Experience island life in this charming beach bungalow. Just steps from the ocean, it's the perfect place to relax and unwind.",
+                "price": "$300/night",
+                "location": "Puri",
+                "bedrooms": "3BHk",
+                "img": "public/roomImg/room6.jpg"
+            },
+            {
+                "title": "Mountain View Cabin",
+                "description": "Enjoy breathtaking mountain views from this cozy cabin. Perfect for nature lovers and outdoor enthusiasts.",
+                "price": "$200/night",
+                "location": "Balangir",
+                "bedrooms": "2B2Hk",
+                "img": "public/roomImg/room7.jpeg"
+            },
+            {
+                "title": "Coastal Beach House",
+                "description": "Relax in this coastal beach house just steps from the ocean. Enjoy beach walks, sunsets, and the sound of the waves.",
+                "price": "$250/night",
+                "location": "Puri",
+                "bedrooms": "1BHk",
+                "img": "public/roomImg/room8.jpeg"
+            },
+            {
+                "title": "City Center Apartment",
+                "description": "Live in the heart of the city in this modern apartment. Close to restaurants, shops, and cultural attractions.",
+                "price": "$180/night",
+                "location": "MahattabRoad",
+                "bedrooms": "2BHk",
+                "img": "public/roomImg/room9.jpg"
+            },
+            {
+                "title": "Hilltop Retreat Villa",
+                "description": "Escape to this secluded villa perched on a hilltop. Enjoy panoramic views, hiking trails, and starry nights.",
+                "price": "$400/night",
+                "location": "Kendujhar",
+                "bedrooms": "3BHk",
+                "img": "public/roomImg/room10.jpg"
+
+            },
+            {
+              "title": "Cozy Seaside Retreat",
+              "description": "Escape to this charming seaside retreat and immerse yourself in the tranquility of the ocean. With comfortable accommodations and serene views, it's the perfect getaway for relaxation.",
+              "price": "$150/night",
+              "location": "Bhubaneswar",
+              "bedrooms": "3BHK",
+              "image": "public/roomImg/room11.jpeg"
+            },
+            {
+              "title": "Urban Chic Loft",
+              "description": "Experience the vibrancy of city living in this stylish loft apartment. Located in the heart of Bhubaneswar, it offers modern amenities and easy access to urban attractions.",
+              "price": "$200/night",
+              "location": "Bhubaneswar",
+              "bedrooms": "2BHK",
+              "image": "public/roomImg/room12.jpg"
+            },
+            {
+              "title": "Tranquil Lakeside Cabin",
+              "description": "Unwind in this cozy lakeside cabin nestled amidst nature's beauty. Enjoy fishing, birdwatching, and peaceful evenings by the lake.",
+              "price": "$120/night",
+              "location": "Bhubaneswar",
+              "bedrooms": "1BHK",
+              "image": "public/roomImg/room13.jpeg"
+            },
+            {
+              "title": "Rustic Mountain Retreat",
+              "description": "Escape to the mountains and reconnect with nature in this rustic retreat. With breathtaking views and hiking trails nearby, it's a paradise for outdoor enthusiasts.",
+              "price": "$250/night",
+              "location": "Bhubaneswar",
+              "bedrooms": "3BHK",
+              "image": "public/roomImg/room14.jpg"
+            },
+            {
+              "title": "Luxury Beachfront Villa",
+              "description": "Indulge in luxury at this stunning beachfront villa. With private beach access and luxurious amenities, it's an unforgettable retreat.",
+              "price": "$280/night",
+              "location": "Bhubaneswar",
+              "bedrooms": "4BHK",
+              "image": "public/roomImg/room15.jpg"
+            },
+            {
+              "title": "Chic City Center Apartment",
+              "description": "Live in style in this modern apartment located in the bustling city center of Bhubaneswar. Close to restaurants, shops, and cultural attractions, it offers convenience and comfort.",
+              "price": "$180/night",
+              "location": "Bhubaneswar",
+              "bedrooms": "2BHK",
+              "image": "public/roomImg/room16.jpg"
+            }
+          ]
+          
+        
+          ]
+    
+}
