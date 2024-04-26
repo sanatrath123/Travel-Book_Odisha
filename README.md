@@ -1,3 +1,3 @@
 # React + Vite
 
-## write now i am working on this project 
+## Right now i am working on this project 
