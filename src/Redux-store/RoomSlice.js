@@ -15,8 +15,11 @@ AddRooms: (state , action)=>{
 },
 
 AddCart: (state , action)=>{
+   const allreadyhave = state.cart.some((item)=>item.id == action.payload.id)
+   if(!allreadyhave){
     state.cart.push(action.payload)
-    console.log(action.payload)
+   }
+ 
 },
 RemoveCart:(state , action)=>{
   state.cart =  state.cart.filter((item)=>(
@@ -25,8 +28,11 @@ RemoveCart:(state , action)=>{
 },
 
 AddFavourite:(state, action)=>{
-    state.favourite.push(action.payload)
-},
+    const allready = state.favourite.some((item)=>item.id == action.payload.id)
+ if(!allready) {
+  state.favourite.push(action.payload)
+}},
+
 RemoveFavourite:(state, action)=>{
   state.favourite =  state.favourite.filter((item)=>(
         item.id != action.payload

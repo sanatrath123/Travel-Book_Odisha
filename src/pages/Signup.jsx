@@ -24,8 +24,8 @@ const navigate = useNavigate()
       if(logeduser) {
         const currentUser = await  authService.GetCurrentUser()
         if(!currentUser) return
-        dispatch(Login(currentUser))
-        servise.AddUserToDB(currentUser)
+      const UserFromDb = await servise.AddUserToDB(currentUser)
+        dispatch(Login(UserFromDb))
         navigate("/")
       }
 }}

@@ -27,16 +27,44 @@ try {
 }
 }
 
-//add the cart in DB
-// async ADDTOCART (data){
-//     const {img , title , price , description} = data
-//     try {
-        
+//collect the user data 
+ async GetUser(data) {
+const {$id} = data
+    try {
+        debugger
+        const AllData = await this.database.listDocuments(
+            conf.databaseId,
+            conf.usercollectionId,
+        )
+        if(!AllData) return 
+    
+const UserData = AllData.documents
+.filter((doc)=>(
+ doc.id == $id 
+))
 
-//     } catch (error) {
-//         console.log("ERROR IN ADD DATA ", error)
-//     }
-// }
+return UserData
+    } catch (error) {
+        console.log("ERROR IN GetUSERDATA", error)
+    }
+}
+
+//add the cart in DB
+async ADDTOCART (data){
+    const {img , title , price , description ,owner} = data
+    debugger
+    try {
+        await this.database.createDocument(
+            conf.databaseId,
+            conf.cartcollectionId,
+            ID.unique(),
+            {img , title , price , description ,owner}
+        )
+
+    } catch (error) {
+        console.log("ERROR IN ADD DATA ", error)
+    }
+}
 
 
 }

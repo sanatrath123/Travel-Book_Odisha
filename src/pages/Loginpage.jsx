@@ -7,6 +7,8 @@ import { useNavigate } from "react-router-dom";
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button";
 import { Mail,  Loader2} from "lucide-react"
+import servise from "@/Appwrite/Config";
+
 
 const LoginPage = () => {
 
@@ -22,8 +24,8 @@ const [error , setError] = useState(null)
       const User = await authService.LoginAccount(data)
       if(User != "PLEASE ENTER VALID EMAIL AND PASSWORD" && User){
           const currentUser = await authService.GetCurrentUser()
-          console.log(currentUser)
-       dispatch(Login(User))
+      const UserData = await servise.GetUser(currentUser)
+       dispatch(Login(UserData))
   navigate("/")
   setError(null)
       }

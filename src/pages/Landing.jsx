@@ -3,12 +3,14 @@ import { Button } from "@/components/ui/button"
 import { Link } from "react-router-dom"
 import { Input } from "@/components/ui/input"
 import useAddRoomsToStore from "@/hooks/useAddRoomsToStore"
-
+import { useForm } from "react-hook-form"
 
 
 const Landing =  () => {
 
     const authStatus = useSelector((state)=>state.auth.status)
+
+const {register , handleSubmit} = useForm()
 
     //store the room using custom hooks 
    useAddRoomsToStore()
