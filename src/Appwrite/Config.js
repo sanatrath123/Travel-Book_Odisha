@@ -14,6 +14,7 @@ this.Client.setEndpoint(conf.appwriteurl)
 async AddUserToDB(data){
     const {name , email , $id} = data
  const id = $id
+
 try {
     return  await this.database.createDocument(
         conf.databaseId,
@@ -27,15 +28,15 @@ try {
 }
 
 //add the cart in DB
-async ADDTOCART (data){
-    const {img , title , price , description} = data
-    try {
+// async ADDTOCART (data){
+//     const {img , title , price , description} = data
+//     try {
         
 
-    } catch (error) {
-        console.log("ERROR IN ADD DATA ", error)
-    }
-}
+//     } catch (error) {
+//         console.log("ERROR IN ADD DATA ", error)
+//     }
+// }
 
 
 }

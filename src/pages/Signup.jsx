@@ -7,7 +7,7 @@ import { useNavigate , Link} from 'react-router-dom'
 import { Input  } from '@/components/ui/input'
 import { Button} from "@/components/ui/button"
 import { Mail,  Loader2} from "lucide-react"
-
+import servise from "@/Appwrite/Config";
 
 const Signup = () => {
 
@@ -20,14 +20,15 @@ const navigate = useNavigate()
     setLoader(true)
     const user = await authService.CreateAccount(data)
     if(user){
-    //   const logeduser = await authService.LoginAccount(data)
-    //   logeduser &&  await authService.GetCurrentUser()
-    //  dispatch(Login(logeduser))
-     navigate("/login")
-    }
-    setLoader(false)
-
- }
+      const logeduser = await authService.LoginAccount(data)
+      if(logeduser) {
+        const currentUser = await  authService.GetCurrentUser()
+        if(!currentUser) return
+        dispatch(Login(currentUser))
+        servise.AddUserToDB(currentUser)
+        navigate("/")
+      }
+}}
 
   return (
     <div className="flex justify-center items-center h-screen">
