@@ -1,19 +1,25 @@
-import { useSelector } from "react-redux"
+import { useSelector,useDispatch } from "react-redux"
 import { Button } from "@/components/ui/button"
 import { Link } from "react-router-dom"
 import { Input } from "@/components/ui/input"
 import useAddRoomsToStore from "@/hooks/useAddRoomsToStore"
 import { useForm } from "react-hook-form"
-
+import {SearchRoom} from '../Redux-store/RoomSlice'
+import PropertyCard from "@/components/PropertyCard"
 
 const Landing =  () => {
 
     const authStatus = useSelector((state)=>state.auth.status)
-
-const {register , handleSubmit} = useForm()
-
+const SearchItems = useSelector((state)=>state.room.SearchRoom)
+    const { register, handleSubmit} = useForm()
+const dispatch = useDispatch()
     //store the room using custom hooks 
    useAddRoomsToStore()
+
+   //search function
+   const onSubmit= (data)=>{
+   dispatch(SearchRoom(data.value))
+   }
 
  return(
   <div className="w-full flex justify-center flex-col">
@@ -32,12 +38,24 @@ const {register , handleSubmit} = useForm()
 </div>
 <img src="public/home-logo.png" alt="" className="w-2/6 h-[37rem] bg-sky-300 absolute top-48 right-48 bg-cover hidden lg:flex"></img>
 </div>
-<form className=" h-20 w-full bg-sky-300 flex justify-center ">
+<form onSubmit={handleSubmit(onSubmit)} className=" h-20 w-full bg-sky-300 flex justify-center ">
   <Input className="w-3/5 my-auto text-xl"
   placeholder="SERACH FOR ROOMS"
+  {...register("value", {required:true})}
   />
-  <Button className=" my-auto ml-5"><img src="public/search-logo.jpg" className="h-9 w-10" alt="" /></Button>
+  <Button type="submit" className=" my-auto ml-5"><img src="public/search-logo.jpg" className="h-9 w-10" alt="" /></Button>
 </form>
+
+<div className="w-full flex flex-wrap mt-4 justify-center">
+{
+SearchItems && SearchItems.map((item)=>(
+  <PropertyCard
+  key={item.id}
+   {...item}
+  />
+))
+}
+</div>
   </div> 
  )
 

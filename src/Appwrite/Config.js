@@ -51,18 +51,64 @@ return UserData
 
 //add the cart in DB
 async ADDTOCART (data){
-    const {img , title , price , description ,owner} = data
-    debugger
+    const {img , title , intPrice , description, id ,owner} = data
+    const price = intPrice.toString()
     try {
         await this.database.createDocument(
             conf.databaseId,
             conf.cartcollectionId,
             ID.unique(),
-            {img , title , price , description ,owner}
+            {img , title , price , description,id ,owner}
         )
 
     } catch (error) {
         console.log("ERROR IN ADD DATA ", error)
+    }
+}
+
+
+//remove the cart from DB
+
+async RemoveCartDB (id){
+    try {
+      return  await  this.database.deleteDocument(
+            conf.databaseId,
+            conf.cartcollectionId,
+            id
+      )
+    } catch (error) {
+        console.log("ERORR IN DELETE CART IN DB", error)
+    } 
+}
+
+//add favourite list into database 
+
+async ADDTOFAVLISTDB (data){
+    const {img , title , intPrice , description, id ,owner} = data 
+
+    try {
+        return await this.database.createDocument(
+            conf.databaseId,
+            conf.favlistcollectionId,
+            ID.unique(),
+            {img , title , intPrice , description, id ,owner}
+        )
+    } catch (error) {
+        console.log("ERROR IN ADD FAVLIST IN DB", error)
+    }
+}
+
+
+//delete favlist in DB
+async DELETEFAVLISTDB (id){
+    try {
+        return await this.database.deleteDocument(
+            conf.databaseId,
+            conf.favlistcollectionId,
+              id
+        )
+    } catch (error) {
+        console.log("ERROR IN DELETEFAVLSIST", error)
     }
 }
 

@@ -1,16 +1,30 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector , useDispatch} from 'react-redux'
-import { RemoveCart } from '@/Redux-store/RoomSlice'
+import { AddCart, RemoveCart } from '@/Redux-store/RoomSlice'
 import { Button } from '@/components/ui/button'
+import servise from '@/Appwrite/Config'
 const Cart = () => {
 const cartItem = useSelector((state)=>state.room.cart)
-console.log(cartItem)
+const cartfromDb = useSelector((state)=>state.auth.Userdata?.[0]?.cart)
+
 const dispatch = useDispatch()
 //delete 
-const handleClick= (id)=>{
-dispatch(RemoveCart(id))
+const handleClick= (item)=>{
+dispatch(RemoveCart(item?.id))
+if(item?.$id){
+  servise.RemoveCartDB(item.$id)
 }
+}
+//calulating the cart
 let totalcart = 0
+
+//update on the state the 1st rander 
+useEffect(()=>{
+  //TODO:rander on every cycle , fix it later
+cartfromDb && cartfromDb.forEach((item)=>{
+dispatch(AddCart(item))
+})
+},[])
 
   return (
     <div className='flex w-11/12 justify-center flex-col mx-auto'>
@@ -24,11 +38,10 @@ cartItem.length ? cartItem.map((item)=>(
   <h2 className='text-3xl font-semibold mx-auto'>{item.title}</h2>
   <h2 className='text-2xl mx-auto'>{item.price}</h2>
   <span className='hidden lg:flex md:flex '>{item.description}</span>
-  <span className='hidden'>{totalcart = totalcart + item.intPrice}
-  {console.log(totalcart)}</span>
+  <span className='hidden'>{totalcart = totalcart + item.intPrice}</span>
   </div>
   
-  <img src="public/deleteLogo.png" alt="" className='w-9 h-9 my-auto pr-2' onClick={()=>handleClick(item.id)}  />
+  <img src="public/deleteLogo.png" alt="" className='w-9 h-9 my-auto pr-2' onClick={()=>handleClick(item)}  />
   
         </div>
 )) : <div className="bg-cover bg-center w-10/12 h-[34rem] mx-auto mt-3 " style={{backgroundImage: "url('public/0item.png')"}}>

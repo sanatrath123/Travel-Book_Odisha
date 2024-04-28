@@ -23,7 +23,6 @@ const favlist = useSelector((state)=>state.room.favourite)
 const [cheekCart, setCheekCart] = useState(false)
 //add to cart 
 const addToCart = ()=>{
-
   dispatch(AddCart(props))
  servise.ADDTOCART({...props , owner})
  
@@ -32,6 +31,7 @@ const addToCart = ()=>{
 //add fav list
 const addToFavlist = ()=>{
 dispatch(AddFavourite(props))
+servise.ADDTOFAVLISTDB({...props , owner})
 }
 
 //cheeking cart

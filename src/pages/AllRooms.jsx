@@ -7,11 +7,12 @@ const AllRooms = () => {
   useAddRoomsToStore()
   return (
     <div className="flex flex-wrap justify-center bg-gray-200 pt-8">
+
     {
-      roomData.map((item, i)=>(
+      roomData.map((item)=>(
         <PropertyCard
         key={item.title}
-         {...roomData[i]}  
+        {...item}
         />
       ))
     }

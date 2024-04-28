@@ -3,7 +3,9 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
     Hotels: [],
     cart:[],
-    favourite: []
+    favourite: [],
+    SearchRoom: []
+    
 }
 
 export const RoomSlice = createSlice({
@@ -19,7 +21,6 @@ AddCart: (state , action)=>{
    if(!allreadyhave){
     state.cart.push(action.payload)
    }
- 
 },
 RemoveCart:(state , action)=>{
   state.cart =  state.cart.filter((item)=>(
@@ -38,9 +39,18 @@ RemoveFavourite:(state, action)=>{
         item.id != action.payload
     ))
 }
+,
+
+SearchRoom:(state, action)=>{
+    state.SearchRoom= []
+    state.SearchRoom =   state.Hotels.filter((item)=>(
+        item.title.toUpperCase().includes(action.payload.toUpperCase())
+       ))
+       console.log(state.SearchRoom)
+}
 
     }
 })
 
-export const {AddRooms ,AddCart ,RemoveCart , AddFavourite ,RemoveFavourite} = RoomSlice.actions
+export const {AddRooms ,AddCart ,RemoveCart , AddFavourite ,RemoveFavourite,SearchRoom} = RoomSlice.actions
 export default RoomSlice.reducer

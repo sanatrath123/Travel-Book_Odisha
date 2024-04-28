@@ -1,15 +1,28 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useSelector , useDispatch } from 'react-redux'
-import { RemoveFavourite } from '@/Redux-store/RoomSlice'
+import { AddFavourite, RemoveFavourite } from '@/Redux-store/RoomSlice'
+import servise from '@/Appwrite/Config'
 const FavouriteRooms = () => {
 
 const favlist = useSelector((state)=>state.room.favourite)
 const dispatch = useDispatch()
+const DBfavlist = useSelector((state)=>state.auth.Userdata?.[0]?.favlist)
+
 
 //remove function
-const RemoveFav = (id)=>{
-dispatch(RemoveFavourite(id))
+const RemoveFav = (item)=>{
+dispatch(RemoveFavourite(item?.id))
+if(item?.$id){
+  servise.DELETEFAVLISTDB(item.$id)
 }
+}
+
+//update store all the data come from db 
+useEffect(()=>{
+  DBfavlist && DBfavlist.forEach((item)=>{
+    dispatch(AddFavourite(item))
+  })
+},[])
 
   return (
     <div className='flex justify-center flex-col w-full bg-gray-100'>
@@ -25,7 +38,7 @@ dispatch(RemoveFavourite(id))
         <span className='hidden lg:flex md:flex mt-3'>{item.description}</span>
         </div>
         
-        <img src="public/deleteLogo.png" alt="" className='w-9 h-9 my-auto pr-2' onClick={()=>RemoveFav(item.id)} />
+        <img src="public/favicon.png" alt="" className='w-9 h-9 my-auto pr-2' onClick={()=>RemoveFav(item)} />
         
               </div>
       )) : <div className="bg-cover bg-center w-10/12 h-[34rem] mx-auto mt-3 " style={{backgroundImage: "url('public/0item.png')"}}>
