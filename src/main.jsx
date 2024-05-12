@@ -12,6 +12,10 @@ import AuthProtection from './authlayout/Authlayout.jsx'
 import AllRooms from './pages/AllRooms.jsx'
 import Cart from './pages/Cart.jsx'
 import FavouriteRooms from './pages/FavouriteRooms.jsx'
+import Demo from './pages/FilterComp.jsx'
+import PaymentPage from './pages/PaymentPage.jsx'
+
+
 const router = createBrowserRouter([
   {
     path:"/",
@@ -33,6 +37,15 @@ const router = createBrowserRouter([
   {
     path:"/favorite",
     element:<FavouriteRooms/>
+  },
+  {
+    path:"/Demo",
+    element:<Demo/>
+  }
+  ,
+  {
+    path:"/paymentpage",
+    element:<PaymentPage/>
   }
 
 ]},

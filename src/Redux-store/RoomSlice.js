@@ -53,14 +53,20 @@ SearchRoom:(state, action)=>{
 ApplyFilter: (state, action)=>{
 const {price , city , size } = action.payload
  state.FilterRoom = state.Hotels.filter((item)=>(
-       item.location == city
+    item.location == city
      && item.bedrooms == size
-     && item.intPrice <=  parseInt(price)
+     && item.intPrice <=  price 
 ))
+},
+
+PriceFilter:(state , action)=>{
+    state.FilterRoom = state.Hotels.filter((item)=>(
+        item.intPrice <= action.payload
+    ))
 }
 
     }
 })
 
-export const {AddRooms ,AddCart ,RemoveCart , AddFavourite ,RemoveFavourite,SearchRoom, ApplyFilter} = RoomSlice.actions
+export const {AddRooms ,AddCart ,RemoveCart , AddFavourite ,RemoveFavourite,SearchRoom, ApplyFilter, PriceFilter} = RoomSlice.actions
 export default RoomSlice.reducer
