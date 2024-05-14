@@ -24,7 +24,7 @@ naviagte('/login')
 
 
   return (
-    <div className='flex w-full  justify-between fixed top-1 z-10 bg-indigo-600'>
+    <div className='flex w-full  justify-between fixed top-1 z-20 bg-indigo-600'>
 
     <img src="public/main-logo.png" alt="LOGO" className="lg:h-28 lg:w-28 h-12 w-12 my-auto lg:ml-8" />
     <ul className="lg:flex w-6/12 mt-3 hidden lg:justify-between lg:mr-5 ">

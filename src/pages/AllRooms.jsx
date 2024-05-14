@@ -5,6 +5,8 @@ import { useEffect, useState } from 'react'
  import { Button } from '@/components/ui/button'
 // import {ApplyFilter} from '../Redux-store/RoomSlice'
 import FilterComp from './FilterComp'
+import { Input } from '@/components/ui/input'
+
 
 const AllRooms = () => {
   const roomData = useSelector((state)=>state.room.Hotels)
@@ -19,12 +21,20 @@ const handleClcik = ()=>{
 }
 
 
+//handel search bar
+const handleChange = (e)=>{
+
+}
+
 
   return (
 <div className='flex '>
 
     <div className="flex flex-wrap justify-center bg-gray-200 pt-20">
-  
+
+<div className=' fixed z-10 top-32 w-10/12 right-0'>
+
+</div>
 <div className=''>
 <Button className=" fixed left-[4.6rem] px-10 py-6 top-[9rem]"
 onClick={handleClcik}

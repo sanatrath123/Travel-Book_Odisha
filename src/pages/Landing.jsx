@@ -6,24 +6,27 @@ import useAddRoomsToStore from "@/hooks/useAddRoomsToStore"
 import { useForm } from "react-hook-form"
 import {SearchRoom} from '../Redux-store/RoomSlice'
 import PropertyCard from "@/components/PropertyCard"
-
+import Searchbar from "./Searchbar"
 const Landing =  () => {
 
     const authStatus = useSelector((state)=>state.auth.status)
 const SearchItems = useSelector((state)=>state.room.SearchRoom)
-    const { register, handleSubmit} = useForm()
-const dispatch = useDispatch()
+   // const { register, handleSubmit} = useForm()
+//const dispatch = useDispatch()
     //store the room using custom hooks 
    useAddRoomsToStore()
 
    //search function
-   const onSubmit= (data)=>{
-   dispatch(SearchRoom(data.value))
-   }
+  //  const onSubmit= (data)=>{
+  //  dispatch(SearchRoom(data.value))
+  //  }
 
  return(
-  <div className="w-full flex justify-center flex-col">
+  <div className="w-full flex justify-center flex-col bg-blue-700">
 
+<div className="w-full flex justify-center mt-3 ">
+<Searchbar/>
+</div>
 
 <div className="w-full lg:h-[43rem] h-[48rem] bg-blue-700 flex flex-nowrap justify-center">
 <div className="lg:w-2/6 w-5/6 flex flex-col align-middle font-sans absolute top-32 lg:top-64 lg:left-40 left-4">
@@ -38,13 +41,19 @@ const dispatch = useDispatch()
 </div>
 <img src="public/home-logo.png" alt="" className="w-2/6 h-[37rem] bg-sky-300 absolute top-48 right-48 bg-cover hidden lg:flex"></img>
 </div>
-<form onSubmit={handleSubmit(onSubmit)} className=" h-20 w-full bg-sky-300 flex justify-center ">
+{/* <form onSubmit={handleSubmit(onSubmit)} className=" h-20 w-full bg-sky-300 flex justify-center ">
   <Input className="w-3/5 my-auto text-xl"
   placeholder="SERACH FOR ROOMS"
   {...register("value", {required:true})}
   />
   <Button type="submit" className=" my-auto ml-5"><img src="public/search-logo.jpg" className="h-9 w-10" alt="" /></Button>
-</form>
+</form> */}
+
+
+
+{/* <div className="w-full flex justify-center mt-3 ">
+<Searchbar/>
+</div> */}
 
 <div className="w-full flex flex-wrap mt-4 justify-center">
 {
@@ -56,6 +65,7 @@ SearchItems && SearchItems.map((item)=>(
 ))
 }
 </div>
+
   </div> 
  )
 

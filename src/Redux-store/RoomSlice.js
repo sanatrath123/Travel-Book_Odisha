@@ -5,7 +5,8 @@ const initialState = {
     cart:[],
     favourite: [],
     SearchRoom: [],
-   FilterRoom:[]
+   FilterRoom:[],
+   SuggestionBox:[]
     
 }
 
@@ -63,10 +64,21 @@ PriceFilter:(state , action)=>{
     state.FilterRoom = state.Hotels.filter((item)=>(
         item.intPrice <= action.payload
     ))
+},
+
+SuggestionBox:(state , action)=>{
+    if(!action.payload) {
+        state.SuggestionBox =[]
+        return
+    }
+    state.SuggestionBox = []
+    state.SuggestionBox = state.Hotels.filter((item)=>(
+        item.title.toUpperCase().includes(action.payload.toUpperCase())
+    ))
 }
 
     }
 })
 
-export const {AddRooms ,AddCart ,RemoveCart , AddFavourite ,RemoveFavourite,SearchRoom, ApplyFilter, PriceFilter} = RoomSlice.actions
+export const {AddRooms ,AddCart ,RemoveCart , AddFavourite ,RemoveFavourite,SearchRoom, ApplyFilter, PriceFilter,SuggestionBox} = RoomSlice.actions
 export default RoomSlice.reducer
